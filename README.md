@@ -108,6 +108,10 @@ Prompts used:
 
 5. change all front end components to align with accessbility best practices to AAA standards. use mobile first development practices. now implement the filtering logic and endpoint when clicking on the different filters those new endpoints should be used. create them on the express server to satisfy the requirements from the FS_FINTEGRATIONS_CHALLENGE.md file. continue to apply functional programming principles and modularity. create hooks for data fetching with react query and utils folder and functions within it for functions such as formatCurrency use optimistic updates, loading incdicators, usedeferredvalue for heavy rerendering 
 
+6. implement the modal when clicked on the table satisfying the requirements for: Selecting a payout reveals an inline drawer or modal with related invoices (at least IDs & statuses), latest payment attempt, and fraud notes. Provide “Approve”, “Hold”, and “Reject” buttons; require a free-text reason for “Reject”. Surface success/error feedback inline. use the existing endpoints to action them on the server.
+
+6. add some more examples that can be actioned such as flagged in the seed data. move out the icons to separate folders and components. 
+
 ### Decisions
 Familiarity with the stack was the deciding factor in buliding the project with Express.js and React as well as their capability of handling the task.
 
