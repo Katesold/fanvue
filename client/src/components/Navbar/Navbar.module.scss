@@ -1,0 +1,29 @@
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.link {
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+  transition: all var(--transition-fast);
+
+  &:hover:not(.active) {
+    background-color: var(--table-row-alt-bg);
+    color: var(--color-text);
+  }
+}
+
+.active {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+
+  &:hover {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+  }
+}

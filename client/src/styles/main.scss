@@ -1,0 +1,95 @@
+@use './_reset';
+@use './variables' as *;
+
+:root {
+  /* html tag */
+  font-family: Akzidenz Grotesk Pro Med, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  // Theme colors (Light mode)
+  --color-background: #fff;
+  --color-text: #000;
+  --color-primary: #{$primary-color};
+  --color-secondary: #{$secondary-color};
+  --color-contrast: #{$secondary-color};
+
+  // Input colors
+  --input-bg: #fff;
+  --input-text: #000;
+  --input-border: #ccc;
+  --input-focus-border: #{$primary-color};
+
+  // Disabled states
+  --disabled-bg: #ddd;
+  --disabled-text: #999;
+  --disabled-border: #ccc;
+
+  // Table colors
+  --table-bg: #f5f5f5;
+  --table-header-bg: #e0e0e0;
+  --table-row-alt-bg: #fafafa;
+  --table-border: #ddd;
+
+  // Hover colors
+  --hover-bg: #{$secondary-color};
+  --hover-text: #{$text-color};
+
+  // Transitions
+  --transition-fast: #{$transition-fast};
+  --transition-normal: #{$transition-normal};
+}
+
+[theme='dark'] {
+  // Theme colors
+  --color-background: #{$background-color};
+  --color-text: #{$text-color};
+  --color-primary: #{$primary-color};
+  --color-secondary: #{$secondary-color};
+  --color-contrast: #{$secondary-color};
+
+  // Input colors
+  --input-bg: #{$input-bg};
+  --input-text: #{$input-text};
+  --input-border: #{$input-border};
+  --input-focus-border: #{$input-focus-border};
+
+  // Disabled states
+  --disabled-bg: #{$disabled-bg};
+  --disabled-text: #{$disabled-text};
+  --disabled-border: #{$disabled-border};
+
+  // Table colors
+  --table-bg: #{$table-bg};
+  --table-header-bg: #{$table-header-bg};
+  --table-row-alt-bg: #{$table-row-alt-bg};
+  --table-border: #{$table-border};
+
+  // Hover colors
+  --hover-bg: #{$hover-bg};
+  --hover-text: #{$hover-text};
+}
+
+body {
+  margin: 0;
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+#root {
+  // The <div id="root"> element inside <body>
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  min-height: 100vh;
+
+  & > main {
+    flex: 1;
+    padding: 1.5rem;
+  }
+}

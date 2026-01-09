@@ -1,0 +1,206 @@
+@use './_variables' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-block-start: 0;
+  margin-block-end: 1rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+h1 {
+  font-size: 2.5em;
+  font-weight: 400;
+}
+
+h2 {
+  margin-block: 1.5rem;
+  font-size: 2.25em;
+}
+
+h3 {
+  font-size: 2rem;
+  margin-block: 1.25rem;
+}
+
+p {
+  font-size: 1rem;
+  max-width: $max-content-width;
+  margin-block: 0.8rem;
+
+  @media (min-width: 1200px) {
+    font-size: 1.125rem;
+  }
+}
+
+ol,
+ul {
+  padding-inline-start: 2rem;
+}
+
+ul {
+  max-width: $max-content-width;
+  color: var(-color-text);
+}
+
+ol > li {
+  padding-inline-start: 0.7rem;
+}
+
+a {
+  display: inline-block;
+  font-weight: 500;
+  color: var(--color-primary);
+  text-decoration: inherit;
+  transition: color var(--transition-fast);
+
+  &:hover {
+    color: var(--color-secondary);
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-text);
+  border-radius: 7px;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), 
+              color var(--transition-fast), 
+              border-color var(--transition-fast),
+              transform var(--transition-fast);
+
+  &:hover:not(:disabled) {
+    background-color: var(--hover-bg);
+    color: var(--hover-text);
+    border-color: var(--hover-bg);
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    background-color: var(--disabled-bg);
+    border-color: var(--disabled-border);
+    color: var(--disabled-text);
+    cursor: not-allowed;
+  }
+}
+
+textarea {
+  max-width: 100%;
+}
+
+input,
+textarea {
+  display: inline-block;
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  padding: 0.5rem;
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  font-size: 1rem;
+  transition: border-color var(--transition-fast), 
+              box-shadow var(--transition-fast);
+
+  &:hover:not(:disabled) {
+    border-color: var(--color-secondary);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 0 2px rgba(73, 242, 100, 0.2);
+  }
+
+  &:disabled {
+    background-color: var(--disabled-bg);
+    color: var(--disabled-text);
+    cursor: not-allowed;
+  }
+}
+
+select {
+  padding: 0.5rem;
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+
+  &:hover:not(:disabled) {
+    border-color: var(--color-secondary);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--input-focus-border);
+  }
+}
+
+table {
+  margin-block: 1rem;
+  margin-inline: 0;
+  background-color: var(--table-bg);
+  border-radius: 4px;
+  overflow: hidden;
+
+  th {
+    background-color: var(--table-header-bg);
+    font-weight: 600;
+  }
+
+  tr {
+    transition: background-color var(--transition-fast);
+  }
+
+  tbody tr:nth-of-type(odd) {
+    background-color: var(--table-row-alt-bg);
+  }
+
+  tbody tr:hover {
+    background-color: var(--hover-bg);
+    color: var(--hover-text);
+    cursor: pointer;
+  }
+}
+
+table,
+th,
+td {
+  border: 1px solid var(--table-border);
+  border-collapse: collapse;
+  padding: 0.7rem 1rem;
+}
+
+img {
+  display: block;
+  width: 100%;
+}

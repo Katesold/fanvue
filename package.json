@@ -1,37 +1,28 @@
 {
-  "name": "vite-react-ts-starter",
+  "name": "fanvue-funds-console",
   "private": true,
   "version": "1.0.0",
-  "type": "module",
-  "description": "Vite + React + TypeScript starter template",
-  "author": "Stefan Bobrowski",
-  "license": "Apache-2.0",
+  "description": "Fanvue Funds Console - Payments, Payouts & Fraud Dashboard",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "react-router-dom": "^7.6.0"
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:client": "npm run dev --prefix client",
+    "dev:server": "npm run dev --prefix server",
+    "build": "npm-run-all build:client build:server",
+    "build:client": "npm run build --prefix client",
+    "build:server": "npm run build --prefix server",
+    "test": "npm-run-all test:client test:server",
+    "test:client": "npm run test --prefix client",
+    "test:server": "npm run test --prefix server",
+    "lint": "npm-run-all lint:client lint:server",
+    "lint:client": "npm run lint --prefix client",
+    "lint:server": "npm run lint --prefix server",
+    "install:all": "npm-run-all install:root install:client install:server",
+    "install:root": "npm install",
+    "install:client": "npm install --prefix client",
+    "install:server": "npm install --prefix server"
   },
   "devDependencies": {
-    "@eslint/js": "^9.27.0",
-    "@types/react": "^19.1.2",
-    "@types/react-dom": "^19.1.2",
-    "@types/react-router-dom": "^5.3.3",
-    "@vitejs/plugin-react-swc": "^3.9.0",
-    "eslint": "^9.27.0",
-    "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.20",
-    "globals": "^16.1.0",
-    "prettier": "^3.5.3",
-    "sass": "^1.89.0",
-    "typescript": "~5.8.3",
-    "typescript-eslint": "^8.32.1",
-    "vite": "^6.3.5"
+    "concurrently": "^9.1.2",
+    "npm-run-all": "^4.1.5"
   }
 }

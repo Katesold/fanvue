@@ -1,0 +1,82 @@
+@use "../../styles/_variables" as *;
+
+.footer {
+  margin-block-start: auto;
+  padding: 2rem 1.5rem;
+  border-top: 1px solid var(--table-border);
+  background-color: var(--table-bg);
+}
+
+.footerContent {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.description {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--disabled-text);
+  max-width: 250px;
+}
+
+.links {
+  display: flex;
+  gap: 3rem;
+}
+
+.linkGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  a {
+    font-size: 0.875rem;
+    color: var(--color-text);
+    
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+}
+
+.linkTitle {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--disabled-text);
+}
+
+.copyright {
+  grid-column: 1 / -1;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--table-border);
+  
+  p {
+    margin: 0;
+    font-size: 0.75rem;
+    color: var(--disabled-text);
+  }
+}
+
+@media (max-width: 768px) {
+  .footerContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .links {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}

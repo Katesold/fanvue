@@ -1,0 +1,65 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: transform var(--transition-fast);
+
+  &:hover {
+    transform: scale(1.02);
+    
+    .iconBg {
+      fill: var(--color-secondary);
+    }
+  }
+}
+
+.icon {
+  flex-shrink: 0;
+}
+
+.iconBg {
+  fill: var(--color-primary);
+  transition: fill var(--transition-fast);
+}
+
+.iconFg {
+  fill: var(--color-background);
+}
+
+.text {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+// Sizes
+.small {
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+  .text {
+    font-size: 1rem;
+  }
+}
+
+.medium {
+  .icon {
+    width: 32px;
+    height: 32px;
+  }
+  .text {
+    font-size: 1.25rem;
+  }
+}
+
+.large {
+  .icon {
+    width: 48px;
+    height: 48px;
+  }
+  .text {
+    font-size: 1.75rem;
+  }
+}

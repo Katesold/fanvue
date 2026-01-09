@@ -1,0 +1,33 @@
+// Layout
+$max-content-width: 680px;
+
+// Colors
+$primary-color: #49f264;
+$secondary-color: #10631d;
+$background-color: #000;
+$text-color: #fff;
+
+// Input colors
+$input-bg: #1a1a1a;
+$input-text: #fff;
+$input-border: #333;
+$input-focus-border: $primary-color;
+
+// Disabled states
+$disabled-bg: #2a2a2a;
+$disabled-text: #666;
+$disabled-border: #444;
+
+// Table colors
+$table-bg: #111;
+$table-header-bg: #1a1a1a;
+$table-row-alt-bg: #0a0a0a;
+$table-border: #333;
+
+// Hover colors
+$hover-bg: $secondary-color;
+$hover-text: $text-color;
+
+// Transitions
+$transition-fast: 0.15s ease;
+$transition-normal: 0.25s ease;

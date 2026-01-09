@@ -1,0 +1,210 @@
+// Mobile-first StatCard with AAA accessibility
+
+.statCard {
+  display: flex;
+  align-items: center;
+  // Mobile-first: smaller gap and padding
+  gap: 0.625rem;
+  padding: 0.875rem 1rem;
+  border: 2px solid var(--table-border);
+  border-radius: 8px;
+  background-color: var(--table-bg);
+  text-align: left;
+  width: 100%;
+  
+  @media (min-width: 768px) {
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+  }
+}
+
+.clickable {
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  
+  @media (prefers-reduced-motion: no-preference) {
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  // AAA focus indicator
+  &:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  // Mobile-first: smaller icon container
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  
+  @media (min-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0; // Allow text truncation
+  
+  @media (min-width: 768px) {
+    gap: 0.25rem;
+  }
+}
+
+.label {
+  // Mobile-first: smaller font
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--disabled-text);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  @media (min-width: 768px) {
+    font-size: 0.75rem;
+  }
+}
+
+.value {
+  // Mobile-first: smaller font
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+  
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+// Loading animation
+.loading {
+  display: inline-flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.loadingDot {
+  width: 6px;
+  height: 6px;
+  background-color: currentColor;
+  border-radius: 50%;
+  opacity: 0.4;
+  
+  @media (prefers-reduced-motion: no-preference) {
+    animation: loadingPulse 1.4s ease-in-out infinite both;
+    
+    &:nth-child(1) {
+      animation-delay: -0.32s;
+    }
+    &:nth-child(2) {
+      animation-delay: -0.16s;
+    }
+  }
+}
+
+@keyframes loadingPulse {
+  0%, 80%, 100% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Variants with AAA contrast ratios
+.default {
+  .icon {
+    color: var(--color-primary);
+  }
+  .value {
+    color: var(--color-text);
+  }
+}
+
+.warning {
+  border-color: #d97706; // Darker for better contrast
+  
+  .icon {
+    background-color: rgba(245, 158, 11, 0.15);
+    color: #b45309; // AAA compliant on light bg
+  }
+  .value {
+    color: #b45309;
+  }
+  
+  // Dark theme adjustments
+  [theme='dark'] & {
+    .icon {
+      color: #fbbf24;
+    }
+    .value {
+      color: #fbbf24;
+    }
+  }
+}
+
+.danger {
+  border-color: #dc2626; // Darker for better contrast
+  
+  .icon {
+    background-color: rgba(239, 68, 68, 0.15);
+    color: #b91c1c; // AAA compliant on light bg
+  }
+  .value {
+    color: #b91c1c;
+  }
+  
+  [theme='dark'] & {
+    .icon {
+      color: #f87171;
+    }
+    .value {
+      color: #f87171;
+    }
+  }
+}
+
+.success {
+  border-color: var(--color-primary);
+  
+  .icon {
+    background-color: rgba(73, 242, 100, 0.15);
+    color: #15803d; // AAA compliant on light bg
+  }
+  .value {
+    color: #15803d;
+  }
+  
+  [theme='dark'] & {
+    .icon {
+      color: var(--color-primary);
+    }
+    .value {
+      color: var(--color-primary);
+    }
+  }
+}

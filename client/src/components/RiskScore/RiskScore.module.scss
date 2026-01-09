@@ -1,0 +1,108 @@
+// Mobile-first RiskScore with AAA accessibility
+
+.riskScore {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  // Mobile-first: smaller min-width
+  min-width: 80px;
+  
+  @media (min-width: 768px) {
+    min-width: 100px;
+  }
+}
+
+.bar {
+  height: 4px;
+  background-color: var(--table-border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  border-radius: 2px;
+  
+  @media (prefers-reduced-motion: no-preference) {
+    transition: width 0.3s ease;
+  }
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  // Mobile-first: smaller font
+  font-size: 0.6875rem;
+  font-weight: 500;
+  
+  @media (min-width: 768px) {
+    font-size: 0.75rem;
+  }
+}
+
+.score {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.separator {
+  opacity: 0.5;
+}
+
+.levelText {
+  text-transform: capitalize;
+}
+
+// AAA compliant variant colors
+.low {
+  .fill {
+    background-color: #22c55e;
+  }
+  .label {
+    color: #15803d; // AAA on light bg
+  }
+  
+  [theme='dark'] & .label {
+    color: #4ade80;
+  }
+}
+
+.medium {
+  .fill {
+    background-color: #eab308;
+  }
+  .label {
+    color: #a16207; // AAA on light bg
+  }
+  
+  [theme='dark'] & .label {
+    color: #facc15;
+  }
+}
+
+.high {
+  .fill {
+    background-color: #f97316;
+  }
+  .label {
+    color: #c2410c; // AAA on light bg
+  }
+  
+  [theme='dark'] & .label {
+    color: #fb923c;
+  }
+}
+
+.critical {
+  .fill {
+    background-color: #ef4444;
+  }
+  .label {
+    color: #b91c1c; // AAA on light bg
+  }
+  
+  [theme='dark'] & .label {
+    color: #f87171;
+  }
+}

@@ -1,0 +1,88 @@
+.sitemap {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.title {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  color: var(--color-text);
+}
+
+.description {
+  margin-bottom: 2rem;
+  color: var(--disabled-text);
+}
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.section {
+  padding: 1.5rem;
+  background-color: var(--table-bg);
+  border: 1px solid var(--table-border);
+  border-radius: 8px;
+}
+
+.sectionTitle {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  color: var(--color-primary);
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.linkItem {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--table-border);
+
+  &:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.25rem;
+  text-decoration: none;
+}
+
+.linkLabel {
+  font-weight: 600;
+  color: var(--color-text);
+  transition: color var(--transition-fast);
+
+  .link:hover & {
+    color: var(--color-primary);
+  }
+}
+
+.linkPath {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--disabled-text);
+  background-color: var(--table-row-alt-bg);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.linkDescription {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--disabled-text);
+}

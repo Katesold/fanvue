@@ -1,0 +1,49 @@
+{
+  "name": "fanvue-client",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Fanvue Funds Console - React Frontend",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm-run-all build:types build:vite",
+    "build:types": "tsc -b",
+    "build:vite": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.62.0",
+    "axios": "^1.7.9",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.27.0",
+    "npm-run-all": "^4.1.5",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react-swc": "^3.9.0",
+    "eslint": "^9.27.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.1.0",
+    "jsdom": "^25.0.1",
+    "msw": "^2.7.0",
+    "prettier": "^3.5.3",
+    "sass": "^1.89.0",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.32.1",
+    "vite": "^6.3.5",
+    "vitest": "^2.1.8"
+  }
+}
