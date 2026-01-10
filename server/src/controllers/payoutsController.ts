@@ -82,11 +82,11 @@ export const getFundsSnapshot = (
   // Calculate amounts using pure functions
   const snapshot: FundsSnapshot = {
     totalScheduledToday: sumAmount(todayPayouts),
-    heldAmount: pipe<Payout[]>(
+    heldAmount: pipe<Payout[], Payout[], number>(
       byStatus('held'),
       sumAmount
     )(todayPayouts),
-    flaggedAmount: pipe<Payout[]>(
+    flaggedAmount: pipe<Payout[], Payout[], number>(
       byStatus('flagged'),
       sumAmount
     )(todayPayouts),

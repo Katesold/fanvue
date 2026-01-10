@@ -1,10 +1,4 @@
-/**
- * Server utilities following functional programming principles
- */
 
-// ============================================
-// Array utilities
-// ============================================
 
 /**
  * Filter array by predicate function
@@ -60,9 +54,25 @@ export const findBy = <T>(predicate: (item: T) => boolean) =>
 
 /**
  * Pipe functions left-to-right
+ * Supports both same-type and type transformations
  */
-export const pipe = <T>(...fns: Array<(arg: T) => T>) => 
-  (value: T): T => fns.reduce((acc, fn) => fn(acc), value);
+export function pipe<T>(...fns: Array<(arg: T) => T>): (value: T) => T;
+export function pipe<T, U, R>(
+  fn1: (arg: T) => U,
+  fn2: (arg: U) => R
+): (value: T) => R;
+export function pipe<T, U, V, R>(
+  fn1: (arg: T) => U,
+  fn2: (arg: U) => V,
+  fn3: (arg: V) => R
+): (value: T) => R;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function pipe<T, R = T>(...fns: Array<(arg: any) => any>): (value: T) => R {
+  return (value: T): R => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return fns.reduce((acc: any, fn) => fn(acc), value) as R;
+  };
+}
 
 /**
  * Compose functions right-to-left
